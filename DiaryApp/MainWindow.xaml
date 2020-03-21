@@ -1,0 +1,24 @@
+﻿<Window x:Class="DiaryApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ひとこと日記アプリ" Height="600" Width="600" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="　日記一覧" VerticalAlignment="Top"/>
+        <Label Content="　本文 表示/入力(新規登録・修正) 欄 " Margin="0,280,30,0"/>
+        <Button x:Name="ShowDiaryBtn" Content="本文を下に表示" FontSize="22" Width="170" Height="50" Click="ShowDiaryBtnClick" Margin="-355,0,0,69"/>
+        <Button x:Name="FixDiaryBtn" Content="選択行を修正" FontSize="22" Width="170" Height="50" Click="FixDiaryBtnClick" Margin="0,0,1,69"/>
+        <Button x:Name="DeleteDiaryBtn" Content="選択行を削除" FontSize="22" Width="170" Height="50" Click="DeleteDiaryBtnClick" Margin="0,0,-354,69"/>
+        <DataGrid x:Name="DiaryListViewGrid" ItemsSource="{Binding Mode=OneWay}" HorizontalGridLinesBrush="#FFD4D4D4" VerticalGridLinesBrush="#FFD4D4D4" IsReadOnly="True" Margin="30,26,30,339">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="日時" Binding="{Binding 'date'}" Width="115"/>
+                <DataGridTextColumn Header="本文" Binding="{Binding 'text'}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="textBoxForAddDiary" Margin="30,306,30,60" TextWrapping="Wrap"/>
+        <Button x:Name="RsetBtn" Content="表示/入力を削除" FontSize="22" Width="170" Height="50" Click="RsetBtnClick" Margin="-355,0,0,-489"/>
+        <Button x:Name="AddDiaryData" Content="日記を新規登録" FontSize="22" Width="170" Height="50" Click="AddDiaryBtnClick" Margin="0,0,-354,-489"/>
+    </Grid>
+</Window>
